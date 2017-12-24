@@ -1,0 +1,95 @@
+/* General */
+aside {
+	background-color: #eee;
+}
+
+
+ul li {
+	cursor: pointer;
+}
+
+
+
+/* Header */
+.nav-fixed-height {
+	height: 50px;
+}
+
+
+#hamburger-slide {
+	cursor: pointer;
+	padding: 5px;
+}
+
+
+
+/* Content */
+.fill-remaining {
+	height: calc(100vh - 50px);
+}
+
+
+
+/* Sidebar */
+.sidebar {
+	position: absolute;
+	min-width: 320px;
+	max-width: 320px;
+	left: -320px;
+	top: 50px;
+	z-index: 2;
+	transition: left 0.3s ease;
+}
+
+
+.sidebar.toggled {
+	position: absolute;
+	left: 0px;
+	top: 50px;
+	z-index: 2;
+	transition: left 0.3s ease;
+}
+
+
+@media (min-width: 768px) {
+	.sidebar.toggled {
+		position: static;
+		margin-left: 0px;
+		transition: margin-left 0.3s ease;
+	}
+
+
+	.sidebar {
+		position: static;
+		margin-left: -320px;
+		transition: margin-left 0.3s ease;
+	}
+}
+
+
+
+/* Map */
+.map-canvas {
+	width: 100%;
+	height: 100%;
+}
+
+
+.map-canvas.toggled {
+	width: 100vw;
+}
+
+
+.fill-space {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+}
+
+
+#venuePhoto {
+	height: 200px;
+	display: flex;
+	justify-content: center;
+	align-content: center;
+}

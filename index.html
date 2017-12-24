@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<title>Google Map</title>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
+		<!-- Custom CSS -->
+		<link href="css/styles.css" rel="stylesheet">
+	</head>
+	<body>
+		<div class="container-fluid">
+			<!-- Header -->
+			<nav class="row navbar navbar-expand-md navbar-light bg-dark nav-fixed-height">
+				<button type="button" id="hamburger-slide" class="btn btn-info navbar-btn" data-bind="click: toggleSidebar"><img src="img/glyphicons-159-show-lines.png" alt="hamburger icon"/></button>
+			</nav>
+
+			<div class="row flex-nowrap fill-remaining">
+				<!-- Sidebar -->
+				<aside data-bind="attr: {class: 'sidebar ' + (sidebarOpen()==true ? 'toggled' : '')}">
+					<header class="row m-2">
+						<button type="button" class="btn btn-primary disabled col-3">Search</button>
+						<div class="col-9 p-0 pl-1">
+							<input type="text" class="form-control" id="search-input" placeholder="Search location name" data-bind="textInput: searchString">
+						</div>
+					</header>
+
+					<section class="m-2">
+						<ul class="list-group" data-bind="foreach: computedLocations">
+							<li data-bind="text: title, attr: {class: 'list-group-item ' + ($parent.activeString()==title ? 'active' : '')}, click: $parent.showCurrentMarker"></li>
+						</ul>
+					</section>
+				</aside>
+
+
+				<!-- Main -->
+				<main class="col-12 fill-space">
+					<div class="row fill-space">
+						<div id="map" data-bind="attr: {class: (sidebarOpen()==true ? 'map-canvas' : 'map-canvas toggled')}"></div>
+					</div>
+				</main>
+			</div>
+		</div>
+
+		<!-- SCRIPTS -->
+		<!-- jQuery first, then Popper.js, then Bootstrap JS, then Knockout JS-->
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+		<script src=https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js></script>
+
+		<!-- Custom scripts -->
+		<script src="js/script.js"></script>
+
+		<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfqj1YMyJsxqO9C-zamHYN1UBWHXXgz4g&amp;v=3&amp;callback=initMap" onerror="googleMapErr()"></script>
+	</body>
+</html>
